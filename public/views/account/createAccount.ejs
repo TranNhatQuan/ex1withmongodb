@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>LIFE</title>
+    <link rel="icon" href="../../icon/2764.png" type="image/png">
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.bootstrap5.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <%- include('../layout/sidebar.ejs') %>
+        <div class="containerLogin">
+            <h2>Đăng ký</h2>
+            <% if (error) { %>
+                <p style="color: red;">
+                    <%= error %>
+                </p>
+                <% } %>
+                    <form id="your-form-id" action="/account/createAccount" method="post">
+                        <div class="form-group">
+                            <label for="username">Tên người dùng:</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mật khẩu:</label>
+                            <input type="password" id="password" name="password" required pattern="^\S.{4,48}\S$"
+                                title="Mật khẩu có độ dài từ 6 đến 50 ký tự.">
+                        </div>
+                        <div class="form-group">
+                            <label for="rpPassword">Xác nhận:</label>
+                            <input type="password" id="rpPassword" name="rpPassword" required pattern="^\S.{4,48}\S$"
+                                title="Mật khẩu có độ dài từ 6 đến 50 ký tự.">
+                            <p id="error-message" style="color: red;"></p>
+                            <!-- Thêm phần tử p để hiển thị thông báo lỗi -->
+                        </div>
+                        <div class="form-group" style="display: flex;justify-content: space-between;">
+                            <div>
+                                <a href="/account/login">Trở lại trang đăng nhập</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Đăng ký</button>
+                        </div>
+                    </form>
+        </div>
+        <script src="../../js/core.js"></script>
+</body>
+
+</html>

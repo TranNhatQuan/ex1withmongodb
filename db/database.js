@@ -1,21 +1,40 @@
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-const mongodb_url = 'mongodb://localhost:27017/test'
+const mongodb_url = 'mongodb://127.0.0.1:27017/facebook';
 
 class Database {
     constructor() {
-        this._connect()
+        this.isConnected = false;
+        this.connect();
     }
 
-    _connect() {
-        mongoose.connect(mongodb_url, { useNewUrlParser: true })
-            .then(() => {
-                console.log("Database connection successfully!");
-            })
-            .catch(err => {
-                console.log("Database connection error!");
-            })
+    async connect() {
+        try {
+            await mongoose.connect(mongodb_url, { useNewUrlParser: true });
+            this.isConnected = true;
+            console.log("Database connection successfully!");
+        } catch (err) {
+            console.error("Database connection error:", err);
+        }
     }
+
+    async startSession() {
+        if (!this.isConnected) {
+            console.log("Chưa kết nối cơ sở dữ liệu.");
+            return;
+        }
+        const session = await mongoose.startSession();
+        console.log("Bắt đầu session!");
+        return session;
+    }
+
+    async endSession(session) {
+
+        session.endSession();
+        console.log("Kết thúc session!");
+    }
+
+
 }
 
 module.exports = new Database();

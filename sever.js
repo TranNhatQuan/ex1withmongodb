@@ -1,7 +1,7 @@
 const express = require("express");
 const session = require('express-session');
 const flash = require('connect-flash');
-const { sequelize } = require("./models");
+var Database = require('./db/database');
 const { rootRouter } = require("./routers")
 const cookieParser = require("cookie-parser");
 const port = 3007;
@@ -46,10 +46,5 @@ const cron = require('cron');
 //lắng nghe sự kiện kết nối
 app.listen(port, async () => {
   console.log(`App listening on http://localhost:${port}`);
-  try {
-    await sequelize.authenticate();
-    console.log('Kết nối thành công!.');
-  } catch (error) {
-    console.error('Kết nối thất bại:', error);
-  }
+
 })

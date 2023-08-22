@@ -1,0 +1,71 @@
+<link href="../../css/style.css" rel="stylesheet">
+
+<nav class="navbar fixed-top" style="background-color:  #4CAF50;">
+
+  <div class="container-fluid">
+    <span class="navbar-brand me-auto">
+
+      <a href="/intro/home" class="text-white" style="font-size: 36px; font-weight: bold; text-decoration: none;">
+        <img src="../../icon/2764.png" alt="Icon" width="50" height="50" style="margin-right: 10px; margin-left: 50px;">
+        LIFE</a>
+    </span>
+
+
+    <div class="dropdown">
+      <button class="btn btn-link text-white dropdown-toggle" type="button" id="dropdownMenuButton"
+        data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+        Dành cho khách hàng
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+
+        <li><a class="dropdown-item" href="/user/prePay?url=/intro/home">Tra cứu phí bảo hiểm</a></li>
+        <li><a class="dropdown-item" href="/user/home?url=/account/login">Danh sách hợp đồng hiện
+            tại</a></li>
+        <li><a class="dropdown-item" href="/user/allContract?url=/user/home">Tất cả hợp đồng</a></li>
+
+      </ul>
+    </div>
+
+    <% if (typeof name !=='undefined' ) { %>
+      <div class="dropdown">
+
+        <button class="btn btn-link text-white dropdown-toggle" type="button" id="dropdownMenuButton"
+          data-bs-toggle="dropdown" aria-expanded="false" style="text-decoration: none;">
+          Xin chào, <%= name %>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" class="dropdown-item" href="/user/detail?url=/intro/home">Thông
+                  tin cá
+                  nhân</a></li>
+              <li><a class="dropdown-item" href="/user/changePassword?url=/user/home">Đổi mật khẩu</a>
+              </li>
+            </ul>
+        </button>
+      </div>
+
+      <a class="btn btn-link text-white" href="/account/logoutUser">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22.4" height="22.4" fill="currentColor"
+          class="bi bi-box-arrow-right bi-1.4x" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+          <path fill-rule="evenodd"
+            d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+        </svg>
+      </a>
+      <% }else{ %>
+
+        <a class="btn btn-link text-white" href="/account/login" style="font-size: 18px;text-decoration: none;">
+          Đăng nhập
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0v-2z" />
+            <path fill-rule="evenodd"
+              d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+          </svg>
+        </a>
+        <% } %>
+
+
+  </div>
+</nav>
